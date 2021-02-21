@@ -220,8 +220,6 @@ namespace CrawlPTT
            
             for(int i=0;i<values.Count;i++)
             {
-                i++;
-
                 if(values[i].Count == 0)
                 {
                     continue;
