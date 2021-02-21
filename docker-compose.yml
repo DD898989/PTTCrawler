@@ -1,0 +1,26 @@
+# docker-compose up -d --build
+
+version: '3'
+services:
+
+
+ service_crawl_ptt:
+  volumes:
+    - ./PTT文章:/PTTPosts
+  build:
+    context: ImageCrawlPTT
+    dockerfile: Dockerfile
+  container_name: container_crawl_ptt
+  ports:
+   - "5566:8080"
+  links:
+    - service_monitor
+
+
+ service_monitor:
+  build:
+    context: ImageMonitor
+    dockerfile: Dockerfile
+  container_name: container_monitor
+  ports:
+   - "5567:8080"
