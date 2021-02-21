@@ -418,12 +418,12 @@ namespace CrawlPTT
             }
 
 
+            targetArticles += "↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓\n";
+            
+            foreach (var t in targetFiles)
             {
-                foreach (var t in targetFiles)
-                {
-                    targetArticles += "↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓\n";
-                    targetArticles += File.ReadAllText(t);
-                }
+                targetArticles += File.ReadAllText(t);
+                targetArticles += "↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓\n";
             }
 
             return SendEmail("舊文章", targetArticles);
